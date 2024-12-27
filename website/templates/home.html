@@ -1,0 +1,34 @@
+<!--Create routing for base.html-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--Login Form-->
+<div class="col-md-6 offset-md-3">
+
+    <!--Creating logic to check if user is not logged in-->
+    {% if user.is_authenticated %}
+    <h1>You're logged in</h1>
+
+    {% else %}
+
+    <h1>Login</h1>
+    <br/>
+
+    <form method="POST" action="{% url 'home'%}">
+        {% csrf_token %} <!--Sec function-->
+        <div class="mb-3">
+          <input type="text" class="form-control" name="username" placeholder="username" required>
+        </div>
+        <br/>
+        <div class="mb-3">
+          <input type="password" class="form-control" name="password" placeholder="password" required>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+</div>
+
+{% endif %}
+
+{% endblock %}
