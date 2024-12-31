@@ -10,14 +10,16 @@
           <!--Creating logic for logout buttont to appear if user is logged in-->
           {% if user.is_authenticated %}
 
-
+          <li class="nav-item"> <!--Only appears if they're logged in -->
+            <a class="nav-link" href="{% url 'add_record' %}">Create Record</a> 
+          </li>
           <li class="nav-item"> <!--Only appears if they're logged in -->
             <a class="nav-link" href="{% url 'logout' %}">logout</a>
           </li>
           
           {% else %} <!--Only appears if they're not logged in-->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">register</a>
+            <a class="nav-link" href="{% url 'register' %}">register</a> <!--Step 4 -> now create forms.py-->
           </li>
           
           <li class="nav-item">
